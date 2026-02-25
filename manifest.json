@@ -1,0 +1,8 @@
+{
+  "name": "Smart Food Donation",
+  "short_name": "SFD",
+  "start_url": "/shd/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}
