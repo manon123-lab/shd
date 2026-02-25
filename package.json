@@ -1,11 +1,14 @@
 {
   "name": "vite_react_shadcn_ts",
+  "homepage": "https://github.com/manon123-lab/shd",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
