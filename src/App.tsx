@@ -5,9 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
-import Donor from "./pages/Donor";
-import Requester from "./pages/Requester";
-import Admin from "./pages/Admin";
+import DonorPublic from "./pages/DonorPublic";
+import RequesterPublic from "./pages/RequesterPublic";
+import AdminPublic from "./pages/AdminPublic";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,9 +21,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/donor" element={<Donor />} />
-          <Route path="/requester" element={<Requester />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/donor" element={<DonorPublic />} />
+          <Route path="/requester" element={<RequesterPublic />} />
+          <Route path="/admin" element={<AdminPublic />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </HashRouter>
