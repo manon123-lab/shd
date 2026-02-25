@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig({
-  base: "//manon123-lab.github.io//",
+  base: "/shd/",
   plugins: [react()],
   resolve: {
     alias: {
