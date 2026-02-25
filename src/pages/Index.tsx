@@ -48,10 +48,10 @@ const Index = () => {
   const { requests } = useRequests();
   const { profiles } = useProfiles();
 
-  const totalDonations = donations.length;
-  const totalRequests = requests.length;
-  const totalUsers = profiles.length;
-  const mealsServed = donations.filter(d => d.status === 'accepted' || d.status === 'completed').length * 50;
+  const totalDonations = Array.isArray(donations) ? donations.length : 0;
+  const totalRequests = Array.isArray(requests) ? requests.length : 0;
+  const totalUsers = Array.isArray(profiles) ? profiles.length : 0;
+  const mealsServed = Array.isArray(donations) ? donations.filter(d => d?.status === 'accepted' || d?.status === 'completed').length * 50 : 0;
 
   return (
     <Layout>
