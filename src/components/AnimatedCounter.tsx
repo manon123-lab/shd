@@ -13,6 +13,9 @@ const AnimatedCounter = ({ end, duration = 1500, suffix = "", prefix = "", class
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
 
+  // Ensure end is a valid number
+  const finalEnd = typeof end === 'number' && !isNaN(end) ? Math.floor(end) : 0;
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -23,7 +26,7 @@ const AnimatedCounter = ({ end, duration = 1500, suffix = "", prefix = "", class
             const elapsed = Date.now() - start;
             const progress = Math.min(elapsed / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * end));
+            setCount(Math.floor(eased * finalEnd));
             if (progress < 1) requestAnimationFrame(step);
           };
           requestAnimationFrame(step);
@@ -33,7 +36,7 @@ const AnimatedCounter = ({ end, duration = 1500, suffix = "", prefix = "", class
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [end, duration]);
+  }, [finalEnd, duration]);
 
   return <span ref={ref} className={className}>{prefix}{count.toLocaleString()}{suffix}</span>;
 };
